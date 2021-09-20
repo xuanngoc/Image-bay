@@ -9,5 +9,5 @@ Make GET request to https://image-bay.herokuapp.com/generate?txt=C with query st
 
 
 ----
-#### *Start this repository if you like this.*
+#### *Star ★★★★★ this repository if you like this.*
 #### *Welcome to contributors :)*
