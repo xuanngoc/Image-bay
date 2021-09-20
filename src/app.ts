@@ -3,8 +3,7 @@ import {Generator} from "./processing/Generator"
 
 const app: Application = express()
 
-let port: number
-process.env.NODE_ENV == 'development' ? port = 3000 : port = 80
+const port: number | string = process.env.PORT || 3000
 
 app.get('/generate', (req: Request, res: Response) => {
   const text: string = req.query.txt as string;
