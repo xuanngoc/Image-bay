@@ -7,10 +7,17 @@ const port: number | string = process.env.PORT || 3000
 
 app.set("port", port);
 
-app.get('/generate', (req: Request, res: Response) => {
-  const text: string = req.query.txt as string;
+app.get('/', (req: Request, res: Response) => {
+  res.send("<h1 style='text-align: center; margin-top: 100px'>IMAGE BAY</h1>");
+});
 
-  const bufferImage: Buffer = new Generator(text).toBuffer();
+app.get('/generate', (req: Request, res: Response) => {
+  const text: string = req.query['txt'] as string;
+  const backgroundColor: string = req.query['bgColor'] as string;
+  const textColor: string = req.query['txtColor'] as string;
+
+
+  const bufferImage: Buffer = new Generator(text, backgroundColor, textColor).toBuffer();
   res.end(bufferImage, 'binary');
 })
 
