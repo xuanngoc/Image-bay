@@ -1,4 +1,4 @@
-# Image-generate
+# Image-Bay
 Generate image use canvas
 ____
 ## How to use it
