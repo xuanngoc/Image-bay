@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  image-bay:
+    container_name: image-bay
+    build: .
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    image: image-bay:latest
+    volumes:
+      - ./:/app
+
