@@ -6,8 +6,8 @@ export class Generator {
   private backgroundColor: string;
   private textColor: string;
 
+  constructor( text: string = Generator.DEFAULT_TEXT, backgroundColor: string = "#fa8231", textColor: string = "blue") {
 
-  constructor(text: string = Generator.DEFAULT_TEXT, backgroundColor: string = "#fa8231", textColor: string = "blue", font: string = "Bebas"){
     this.canvas = Canvas.createCanvas(200, 200);
     this.text = text;
     this.backgroundColor = backgroundColor;
@@ -27,10 +27,10 @@ export class Generator {
 
     // Draw text
     context.beginPath();
-    context.font = "regular 148px OpenSans";
+    context.font = `150px Bebas`;
     context.textAlign = "center";
     context.fillStyle = this.textColor;
-    context.fillText(this.text, this.canvas.width/2, this.canvas.height/2 + 50);
+    context.fillText(this.text, this.canvas.width / 2 , this.canvas.height / 2 + 50);
   }
 
   public toBuffer(): Buffer {
@@ -40,9 +40,6 @@ export class Generator {
 
   private registerFonts() {
     Canvas.registerFont('./src/public/fonts/Bebas-Regular.ttf', {family: "Bebas"})
-    Canvas.registerFont('./src/public/fonts/OpenSans-Bold.ttf', {family: 'OpenSans', style: 'bold'})
-    Canvas.registerFont('./src/public/fonts/OpenSans-Regular.ttf', {family: 'OpenSans', style: 'regular'})
-    Canvas.registerFont('./src/public/fonts/OpenSans-Semibold.ttf', {family: 'OpenSans', style: 'semibold'})
 
   }
 }
