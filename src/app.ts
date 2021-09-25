@@ -16,7 +16,6 @@ app.get('/generate', (req: Request, res: Response) => {
   const backgroundColor: string = req.query['bgColor'] as string;
   const textColor: string = req.query['txtColor'] as string;
 
-
   const bufferImage: Buffer = new Generator(text, backgroundColor, textColor).toBuffer();
   res.end(bufferImage, 'binary');
 })
