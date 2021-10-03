@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from 'express'
+import cors from 'cors';
 import {Generator} from "./processing/Generator"
 
 const app: Application = express()
@@ -20,5 +21,14 @@ app.get('/generate', (req: Request, res: Response) => {
   const bufferImage: Buffer = new Generator(text, backgroundColor, textColor).toBuffer();
   res.end(bufferImage, 'binary');
 })
+
+
+app.use(cors({origin: '*'}));
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+})
+
 
 export default app;
