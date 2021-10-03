@@ -1,7 +1,4 @@
 import app from "./app";
-import cors from 'cors';
-
-app.use(cors());
 
 const server = app.listen(app.get("port"), () => {
   console.log(
