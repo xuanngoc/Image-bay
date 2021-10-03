@@ -19,6 +19,8 @@ app.get('/generate', (req: Request, res: Response) => {
   console.log(req.query)
 
   const bufferImage: Buffer = new Generator(text, backgroundColor, textColor).toBuffer();
+
+  res.header("Access-Control-Allow-Origin", "*");
   res.end(bufferImage, 'binary');
 })
 
