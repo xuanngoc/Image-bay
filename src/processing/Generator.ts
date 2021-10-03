@@ -1,4 +1,6 @@
 import * as Canvas from "canvas";
+import { isHexColor } from '../utils/color';
+
 export class Generator {
   static DEFAULT_TEXT = 'N';
   private canvas: Canvas.Canvas;
@@ -10,7 +12,8 @@ export class Generator {
 
     this.canvas = Canvas.createCanvas(200, 200);
     this.text = text;
-    this.backgroundColor = backgroundColor;
+    this.backgroundColor = isHexColor(backgroundColor) ? `#${backgroundColor}` : backgroundColor;
+    console.log(this.backgroundColor)
     this.textColor = textColor;
 
     this.registerFonts();
@@ -40,6 +43,6 @@ export class Generator {
 
   private registerFonts() {
     Canvas.registerFont('./src/public/fonts/Bebas-Regular.ttf', {family: "Bebas"})
-
   }
+
 }
